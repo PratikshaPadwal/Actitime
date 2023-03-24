@@ -1,0 +1,413 @@
+SQL> 
+SQL> SELECT ENAME,SAL,JOB FROM EMP;
+
+ENAME             SAL JOB
+---------- ---------- ---------
+SMITH             800 CLERK
+ALLEN            1600 SALESMAN
+WARD             1250 SALESMAN
+JONES            2975 MANAGER
+MARTIN           1250 SALESMAN
+BLAKE            2850 MANAGER
+CLARK            2450 MANAGER
+SCOTT            3000 ANALYST
+KING             5000 PRESIDENT
+TURNER           1500 SALESMAN
+ADAMS            1100 CLERK
+JAMES             950 CLERK
+FORD             3000 ANALYST
+MILLER           1300 CLERK
+
+14 rows selected.
+
+SQL> SELECT * FROM EMP;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7788 SCOTT      ANALYST         7566 19-APR-87       3000                    20
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+      7876 ADAMS      CLERK           7788 23-MAY-87       1100                    20
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+
+14 rows selected.
+
+SQL> SELECT * FROM DEPT;
+
+    DEPTNO DNAME          LOC
+---------- -------------- -------------
+        10 ACCOUNTING     NEW YORK
+        20 RESEARCH       DALLAS
+        30 SALES          CHICAGO
+        40 OPERATIONS     BOSTON
+
+SQL> SELECT * FROM SALGRADE;
+
+     GRADE      LOSAL      HISAL
+---------- ---------- ----------
+         1        700       1200
+         2       1201       1400
+         3       1401       2000
+         4       2001       3000
+         5       3001       9999
+
+SQL> SELECT BONUS FROM EMP;
+SELECT BONUS FROM EMP
+       *
+ERROR at line 1:
+ORA-00904: "BONUS": invalid identifier
+
+
+SQL> SELECT * FROM BONUS;
+
+no rows selected
+
+SQL> SELECT * FROM TAB;
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+DEPT                           TABLE
+EMP                            TABLE
+BONUS                          TABLE
+SALGRADE                       TABLE
+
+SQL> SELECT ENAME,SAL,JOB,HIREDATE,DEPTNO FROM EMP;
+
+ENAME             SAL JOB       HIREDATE      DEPTNO
+---------- ---------- --------- --------- ----------
+SMITH             800 CLERK     17-DEC-80         20
+ALLEN            1600 SALESMAN  20-FEB-81         30
+WARD             1250 SALESMAN  22-FEB-81         30
+JONES            2975 MANAGER   02-APR-81         20
+MARTIN           1250 SALESMAN  28-SEP-81         30
+BLAKE            2850 MANAGER   01-MAY-81         30
+CLARK            2450 MANAGER   09-JUN-81         10
+SCOTT            3000 ANALYST   19-APR-87         20
+KING             5000 PRESIDENT 17-NOV-81         10
+TURNER           1500 SALESMAN  08-SEP-81         30
+ADAMS            1100 CLERK     23-MAY-87         20
+JAMES             950 CLERK     03-DEC-81         30
+FORD             3000 ANALYST   03-DEC-81         20
+MILLER           1300 CLERK     23-JAN-82         10
+
+14 rows selected.
+
+SQL> SELECT ENAME,SAL,JOB,HIREDATE FROM EMP;
+
+ENAME             SAL JOB       HIREDATE
+---------- ---------- --------- ---------
+SMITH             800 CLERK     17-DEC-80
+ALLEN            1600 SALESMAN  20-FEB-81
+WARD             1250 SALESMAN  22-FEB-81
+JONES            2975 MANAGER   02-APR-81
+MARTIN           1250 SALESMAN  28-SEP-81
+BLAKE            2850 MANAGER   01-MAY-81
+CLARK            2450 MANAGER   09-JUN-81
+SCOTT            3000 ANALYST   19-APR-87
+KING             5000 PRESIDENT 17-NOV-81
+TURNER           1500 SALESMAN  08-SEP-81
+ADAMS            1100 CLERK     23-MAY-87
+JAMES             950 CLERK     03-DEC-81
+FORD             3000 ANALYST   03-DEC-81
+MILLER           1300 CLERK     23-JAN-82
+
+14 rows selected.
+
+SQL> SELECT ENAME,SAL,S*12 FROM EMP;
+SELECT ENAME,SAL,S*12 FROM EMP
+                 *
+ERROR at line 1:
+ORA-00904: "S": invalid identifier
+
+
+SQL> SELECT ENAME,SAL,SAL*12 FROM EMP;
+
+ENAME             SAL     SAL*12
+---------- ---------- ----------
+SMITH             800       9600
+ALLEN            1600      19200
+WARD             1250      15000
+JONES            2975      35700
+MARTIN           1250      15000
+BLAKE            2850      34200
+CLARK            2450      29400
+SCOTT            3000      36000
+KING             5000      60000
+TURNER           1500      18000
+ADAMS            1100      13200
+JAMES             950      11400
+FORD             3000      36000
+MILLER           1300      15600
+
+14 rows selected.
+
+SQL> SELECT ENAME,SAL,SAL*12,SAL*6,SAL*3,SAL+1000 FROM EMP;
+
+ENAME             SAL     SAL*12      SAL*6      SAL*3   SAL+1000
+---------- ---------- ---------- ---------- ---------- ----------
+SMITH             800       9600       4800       2400       1800
+ALLEN            1600      19200       9600       4800       2600
+WARD             1250      15000       7500       3750       2250
+JONES            2975      35700      17850       8925       3975
+MARTIN           1250      15000       7500       3750       2250
+BLAKE            2850      34200      17100       8550       3850
+CLARK            2450      29400      14700       7350       3450
+SCOTT            3000      36000      18000       9000       4000
+KING             5000      60000      30000      15000       6000
+TURNER           1500      18000       9000       4500       2500
+ADAMS            1100      13200       6600       3300       2100
+JAMES             950      11400       5700       2850       1950
+FORD             3000      36000      18000       9000       4000
+MILLER           1300      15600       7800       3900       2300
+
+14 rows selected.
+
+SQL> SELECT ENAME,SAL,SAL*12,SAL*6,COMM*12,COMM*6,SAL*12+2000,COMM*6-1000 FROM EMP;
+
+ENAME             SAL     SAL*12      SAL*6    COMM*12     COMM*6 SAL*12+2000 COMM*6-1000
+---------- ---------- ---------- ---------- ---------- ---------- ----------- -----------
+SMITH             800       9600       4800                             11600
+ALLEN            1600      19200       9600       3600       1800       21200         800
+WARD             1250      15000       7500       6000       3000       17000        2000
+JONES            2975      35700      17850                             37700
+MARTIN           1250      15000       7500      16800       8400       17000        7400
+BLAKE            2850      34200      17100                             36200
+CLARK            2450      29400      14700                             31400
+SCOTT            3000      36000      18000                             38000
+KING             5000      60000      30000                             62000
+TURNER           1500      18000       9000          0          0       20000       -1000
+ADAMS            1100      13200       6600                             15200
+JAMES             950      11400       5700                             13400
+FORD             3000      36000      18000                             38000
+MILLER           1300      15600       7800                             17600
+
+14 rows selected.
+
+SQL> SELECT ENAME,SAL,SAL*12,SAL+SAL*10/100 FROM EMP;
+
+ENAME             SAL     SAL*12 SAL+SAL*10/100
+---------- ---------- ---------- --------------
+SMITH             800       9600            880
+ALLEN            1600      19200           1760
+WARD             1250      15000           1375
+JONES            2975      35700         3272.5
+MARTIN           1250      15000           1375
+BLAKE            2850      34200           3135
+CLARK            2450      29400           2695
+SCOTT            3000      36000           3300
+KING             5000      60000           5500
+TURNER           1500      18000           1650
+ADAMS            1100      13200           1210
+JAMES             950      11400           1045
+FORD             3000      36000           3300
+MILLER           1300      15600           1430
+
+14 rows selected.
+
+SQL> SELECT ENMAE,SAL,SAL*12,COMM+COMM*25/100 FROM EMP;
+SELECT ENMAE,SAL,SAL*12,COMM+COMM*25/100 FROM EMP
+       *
+ERROR at line 1:
+ORA-00904: "ENMAE": invalid identifier
+
+
+SQL> SELECT ENAME,SAL,SAL*12,COMM+COMM*25/100 FROM EMP;
+
+ENAME             SAL     SAL*12 COMM+COMM*25/100
+---------- ---------- ---------- ----------------
+SMITH             800       9600
+ALLEN            1600      19200              375
+WARD             1250      15000              625
+JONES            2975      35700
+MARTIN           1250      15000             1750
+BLAKE            2850      34200
+CLARK            2450      29400
+SCOTT            3000      36000
+KING             5000      60000
+TURNER           1500      18000                0
+ADAMS            1100      13200
+JAMES             950      11400
+FORD             3000      36000
+MILLER           1300      15600
+
+14 rows selected.
+
+SQL> SELECT ENAME,SAL,JOB,SAL+SAL*27/100,COMM-COMM*35/100 FROM EMP;
+
+ENAME             SAL JOB       SAL+SAL*27/100 COMM-COMM*35/100
+---------- ---------- --------- -------------- ----------------
+SMITH             800 CLERK               1016
+ALLEN            1600 SALESMAN            2032              195
+WARD             1250 SALESMAN          1587.5              325
+JONES            2975 MANAGER          3778.25
+MARTIN           1250 SALESMAN          1587.5              910
+BLAKE            2850 MANAGER           3619.5
+CLARK            2450 MANAGER           3111.5
+SCOTT            3000 ANALYST             3810
+KING             5000 PRESIDENT           6350
+TURNER           1500 SALESMAN            1905                0
+ADAMS            1100 CLERK               1397
+JAMES             950 CLERK             1206.5
+FORD             3000 ANALYST             3810
+MILLER           1300 CLERK               1651
+
+14 rows selected.
+
+SQL> SELECT ENAME,SAL,JOB,SAL*12+SAL*12*10/100 FROM EMP;
+
+ENAME             SAL JOB       SAL*12+SAL*12*10/100
+---------- ---------- --------- --------------------
+SMITH             800 CLERK                    10560
+ALLEN            1600 SALESMAN                 21120
+WARD             1250 SALESMAN                 16500
+JONES            2975 MANAGER                  39270
+MARTIN           1250 SALESMAN                 16500
+BLAKE            2850 MANAGER                  37620
+CLARK            2450 MANAGER                  32340
+SCOTT            3000 ANALYST                  39600
+KING             5000 PRESIDENT                66000
+TURNER           1500 SALESMAN                 19800
+ADAMS            1100 CLERK                    14520
+JAMES             950 CLERK                    12540
+FORD             3000 ANALYST                  39600
+MILLER           1300 CLERK                    17160
+
+14 rows selected.
+
+SQL> SELECT ENAME,SAL,SAL*12,SAL*6+SAL*6*20/100,COMM*12-COMM*12*10/100 FROM EMP;
+
+ENAME             SAL     SAL*12 SAL*6+SAL*6*20/100 COMM*12-COMM*12*10/100
+---------- ---------- ---------- ------------------ ----------------------
+SMITH             800       9600               5760
+ALLEN            1600      19200              11520                   3240
+WARD             1250      15000               9000                   5400
+JONES            2975      35700              21420
+MARTIN           1250      15000               9000                  15120
+BLAKE            2850      34200              20520
+CLARK            2450      29400              17640
+SCOTT            3000      36000              21600
+KING             5000      60000              36000
+TURNER           1500      18000              10800                      0
+ADAMS            1100      13200               7920
+JAMES             950      11400               6840
+FORD             3000      36000              21600
+MILLER           1300      15600               9360
+
+14 rows selected.
+
+SQL> SELECT ENAME,SAL,SAL*6 FROM EMP;
+
+ENAME             SAL      SAL*6
+---------- ---------- ----------
+SMITH             800       4800
+ALLEN            1600       9600
+WARD             1250       7500
+JONES            2975      17850
+MARTIN           1250       7500
+BLAKE            2850      17100
+CLARK            2450      14700
+SCOTT            3000      18000
+KING             5000      30000
+TURNER           1500       9000
+ADAMS            1100       6600
+JAMES             950       5700
+FORD             3000      18000
+MILLER           1300       7800
+
+14 rows selected.
+
+SQL> SELECT DISTINCT(SAL) FROM EMP;
+
+       SAL
+----------
+      2450
+      5000
+      1300
+      1250
+      2850
+      2975
+      1100
+      3000
+       800
+      1600
+      1500
+       950
+
+12 rows selected.
+
+SQL> SELECT DISTINCT(JOB) FROM EMP;
+
+JOB
+---------
+CLERK
+SALESMAN
+PRESIDENT
+MANAGER
+ANALYST
+
+SQL> SELECT DISTINCT(DEPTNO) FROM EMP;
+
+    DEPTNO
+----------
+        30
+        20
+        10
+
+SQL> SELECT ENAME,EMPNO,MGR,SAL*12,SAL*6+SAL*6*10/100 FROM EMP;
+
+ENAME           EMPNO        MGR     SAL*12 SAL*6+SAL*6*10/100
+---------- ---------- ---------- ---------- ------------------
+SMITH            7369       7902       9600               5280
+ALLEN            7499       7698      19200              10560
+WARD             7521       7698      15000               8250
+JONES            7566       7839      35700              19635
+MARTIN           7654       7698      15000               8250
+BLAKE            7698       7839      34200              18810
+CLARK            7782       7839      29400              16170
+SCOTT            7788       7566      36000              19800
+KING             7839                 60000              33000
+TURNER           7844       7698      18000               9900
+ADAMS            7876       7788      13200               7260
+JAMES            7900       7698      11400               6270
+FORD             7902       7566      36000              19800
+MILLER           7934       7782      15600               8580
+
+14 rows selected.
+
+SQL> SELECT ENAME EMPNAME,SAL*12 "ANNUAL SALARY",SAL*6 MID_TERM_SAL,SAL+SAL*10/100 HIKE FROM EMP;
+
+EMPNAME    ANNUAL SALARY MID_TERM_SAL       HIKE
+---------- ------------- ------------ ----------
+SMITH               9600         4800        880
+ALLEN              19200         9600       1760
+WARD               15000         7500       1375
+JONES              35700        17850     3272.5
+MARTIN             15000         7500       1375
+BLAKE              34200        17100       3135
+CLARK              29400        14700       2695
+SCOTT              36000        18000       3300
+KING               60000        30000       5500
+TURNER             18000         9000       1650
+ADAMS              13200         6600       1210
+JAMES              11400         5700       1045
+FORD               36000        18000       3300
+MILLER             15600         7800       1430
+
+14 rows selected.
+
+SQL> SELECT ENAME,SAL FROM EMP WHERE ENAME='SMITH';
+
+ENAME             SAL
+---------- ----------
+SMITH             800
+
+SQL> 
